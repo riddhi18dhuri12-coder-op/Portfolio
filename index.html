@@ -20,15 +20,6 @@
   /* Custom Cursor / Doodly Elements */
   body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23FF6F61' stroke='%232D2D2D' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.45 0 .67-.54.35-.85L6.35 2.85c-.32-.32-.85-.1-.85.36z'/%3E%3C/svg%3E"), auto; }
   a, button, input, textarea { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFC94A' stroke='%232D2D2D' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87c.45 0 .67-.54.35-.85L6.35 2.85c-.32-.32-.85-.1-.85.36z'/%3E%3C/svg%3E"), pointer; }
-  <!-- Floating Doodles Overlay -->
-    <div style="position: absolute; top: 15%; right: 8%; width: 120px; pointer-events: none; transform: rotate(12deg); display: none;" class="doodle-float" id="doodle-badge">
-      <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="150" height="150" rx="10" fill="#FFC94A" stroke="#2D2D2D" stroke-width="3"/>
-        <text x="15" y="50" font-family="'Caveat', cursive" font-size="22" fill="#2D2D2D" font-weight="bold">✨ Hire me!</text>
-        <text x="15" y="85" font-family="'JetBrains Mono', monospace" font-size="12" fill="#555">Code &amp; Pizza</text>
-        <path d="M20 110 Q 75 130 130 110" stroke="#2D2D2D" stroke-width="2" fill="none"/>
-      </svg>
-    </div>
   
   :root{
     --paper: #FBF9F4;
@@ -80,7 +71,6 @@
     border-bottom: 2.5px dashed var(--line-strong);
   }
   nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding:14px 28px; max-width:920px; }
-  <button id="theme-toggle" style="background:var(--paper-2); border:2px solid var(--ink); border-radius:4px; padding:6px 12px; font-family:'JetBrains Mono',monospace; font-size:12px; box-shadow:2px 2px 0px var(--ink); cursor:pointer;">💡 Mode</button>
   .brand{ font-family:'Caveat', cursive; font-weight:700; font-size:24px; text-decoration:none; display:flex; align-items:center; gap:8px; color: var(--ink); }
   .brand .dot{ width:10px;height:10px;border-radius:50%; background:var(--coral); display:inline-block; animation: blink 1.6s ease-in-out infinite; transform: rotate(45deg); }
   @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0.25;} }
@@ -448,6 +438,7 @@
       <a href="#certs"><span class="num">05</span>certs</a>
       <a href="#education"><span class="num">06</span>education</a>
       <a href="#contact"><span class="num">07</span>contact</a>
+        <button id="theme-toggle" style="background:var(--paper-2); border:2px solid var(--ink); border-radius:4px; padding:6px 12px; font-family:'JetBrains Mono',monospace; font-size:12px; box-shadow:2px 2px 0px var(--ink); cursor:pointer;">💡 Mode</button>
     </div>
   </div>
 </nav>
