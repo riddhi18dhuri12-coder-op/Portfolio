@@ -288,7 +288,16 @@
     content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg);
     width: 50px; height: 16px; background: rgba(255, 201, 74, 0.5); border: 1px dashed var(--ink);
   }
-  .polaroid img { width: 140px; height: 90px; object-fit: cover; display: block; filter: sepia(0.1) contrast(1.1); }
+  
+  /* Polaroid Images - Fixed responsiveness & aspect ratios */
+  .polaroid img {
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 14 / 9;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.1) contrast(1.1);
+  }
   
   .project-info h3 { font-size: 22px; margin-bottom: 8px; font-family: 'Fraunces', serif; }
   .project-info p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 16px; }
@@ -675,7 +684,8 @@
     <div class="about-grid">
       <div class="left">
         <div class="profile-photo-wrap">
-          <img src="Assets/pfp.png" alt="Riddhi Dhuri" >
+          <!-- Added missing 'profile-photo' class here -->
+          <img class="profile-photo" src="Assets/pfp.png" alt="Riddhi Dhuri">
         </div>
         <p class="pull">I like the LAMP stack for how quickly it turns into something real, I like Java for how it makes you think in structure, and I like data because it's the part of a system that tells the truth.</p>
       </div>
