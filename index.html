@@ -209,22 +209,6 @@
   .fact-card dt{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; }
   .fact-card dd{ margin:4px 0 0; font-size:15px; font-weight:600; color: var(--ink); font-family: 'Space Grotesk', sans-serif; }
 
-  /* FUN FACTS */
-  .fun-facts {
-    display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 24px;
-  }
-  @media(min-width: 640px) { .fun-facts { grid-template-columns: repeat(3, 1fr); } }
-  .fun-card {
-    background: var(--paper); border: 2px dashed var(--line-strong); 
-    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
-    padding: 18px; font-family: 'Caveat', cursive; font-size: 18px; color: var(--ink);
-    transform: rotate(-1deg); transition: transform .2s var(--ease-quiet), box-shadow .2s var(--ease-quiet);
-  }
-  .fun-card:nth-child(2) { transform: rotate(1deg); }
-  .fun-card:nth-child(3) { transform: rotate(-1deg); }
-  .fun-card:hover { transform: rotate(0deg) translateY(-3px); box-shadow: 4px 4px 0px var(--ink); }
-  .fun-card .icon { font-size: 24px; display: block; margin-bottom: 8px; }
-
   /* EXPERIENCE */
   .path{ margin-top:44px; position:relative; padding-left: 8px; }
   .path-line{ position:absolute; left:24px; top:0; bottom:0; width:4px; background-image: linear-gradient(var(--ink) 50%, transparent 50%); background-size: 4px 16px; background-repeat: repeat-y; z-index:0; }
@@ -304,9 +288,15 @@
     content: ''; position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(2deg);
     width: 50px; height: 16px; background: rgba(255, 201, 74, 0.5); border: 1px dashed var(--ink);
   }
+  
+  /* Polaroid Images - Fixed responsiveness & aspect ratios */
   .polaroid img {
-    width: 100%; max-width: 140px; aspect-ratio: 14 / 9; object-fit: cover;
-    display: block; filter: sepia(0.1) contrast(1.1);
+    width: 100%;
+    max-width: 140px;
+    aspect-ratio: 14 / 9;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.1) contrast(1.1);
   }
   
   .project-info h3 { font-size: 22px; margin-bottom: 8px; font-family: 'Fraunces', serif; }
@@ -314,28 +304,12 @@
   .project-link-wrap { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
   .doodle-dash { font-family: 'Caveat', cursive; font-size: 20px; color: var(--violet); transform: rotate(-5deg); }
 
-  /* SKILLS - Grouped Categories */
-  .tech-categories {
-    display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 40px;
-  }
-  @media (min-width: 760px) {
-    .tech-categories { grid-template-columns: 1fr 1fr; gap: 40px 60px; }
-  }
-  .tech-category {
-    padding: 24px;
-    background: var(--paper-2);
-    border: 2px dashed var(--line-strong);
-    border-radius: 4px;
-  }
-  .category-title {
-    font-family: 'Caveat', cursive; font-size: 26px; font-weight: 700;
-    color: var(--coral); margin: 0 0 20px 0; border-bottom: 2px dashed var(--line); padding-bottom: 8px;
-  }
-  .tech-category .tech-grid { margin-top: 0; justify-content: flex-start; gap: 16px; }
+  /* SKILLS - Tech Logos */
+  .tech-grid { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-top: 40px; }
   .tech-item {
     display: flex; flex-direction: column; align-items: center; gap: 8px;
-    width: 70px; padding: 12px 5px; text-align: center;
-    border: 2px dashed var(--line-strong);
+    width: 90px; padding: 16px 5px; text-align: center;
+    border: 2.5px dashed var(--line-strong);
     border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
     background: var(--paper);
     transition: transform .2s var(--ease-quiet), box-shadow .2s var(--ease-quiet), border-color .2s;
@@ -344,13 +318,14 @@
   .tech-item.in { opacity: 1; transform: translateY(0); }
   .tech-item:hover {
     transform: translateY(-5px) rotate(-2deg);
-    box-shadow: 4px 4px 0px var(--ink);
-    border-style: solid; border-color: var(--ink);
+    box-shadow: 5px 5px 0px var(--ink);
+    border-style: solid;
+    border-color: var(--ink);
   }
-  .tech-item i { font-size: 30px; line-height: 1; }
+  .tech-item i { font-size: 36px; line-height: 1; }
   .tech-item span { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); }
-  .custom-tech { color: var(--violet); display: flex; align-items: center; justify-content: center; height: 30px; }
-  .custom-tech svg { width: 28px; height: 28px; }
+  .custom-tech { color: var(--violet); display: flex; align-items: center; justify-content: center; height: 36px; }
+  .custom-tech svg { width: 32px; height: 32px; }
 
   /* CERTS */
   .shelf-wrap{ margin-top:36px; margin-inline:-28px; padding-inline:28px; overflow-x:auto; scrollbar-width:thin; }
@@ -395,16 +370,6 @@
   footer h2{ font-size:clamp(38px,8vw,64px); max-width:12ch; color:var(--ink); line-height:0.95; }
   footer h2 em{ color:var(--coral); font-family: 'Caveat', cursive; font-weight: 700; font-style: normal; transform: rotate(-3deg); display: inline-block; }
   footer .tagline{ margin-top:20px; color:var(--ink-soft); max-width:50ch; font-size:17px; }
-
-  /* Recruiter CTA */
-  .recruiter-cta {
-    margin: 50px 0; padding: 36px; background: var(--paper); 
-    border: 2.5px solid var(--ink); border-radius: 15px 255px 15px 225px / 225px 15px 255px 15px;
-    transform: rotate(-1deg); box-shadow: 6px 6px 0px var(--ink);
-  }
-  .cta-title { font-family: 'Fraunces', serif; font-size: clamp(22px, 3vw, 28px); color: var(--ink); margin: 0 0 24px 0; line-height: 1.3; }
-  .cta-title em { color: var(--coral); font-family: 'Caveat', cursive; font-style: normal; font-weight: 700; }
-  .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
 
   .contact-grid{ display:grid; grid-template-columns:1fr; gap:48px; margin-top:40px; }
   @media(min-width:760px){ .contact-grid{ grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; } }
@@ -516,6 +481,7 @@
 
   /* ====================== HAMBURGER MENU ====================== */
 
+  /* Hamburger button — mobile only by default */
   .hamburger {
     display: flex;
     flex-direction: column;
@@ -541,6 +507,7 @@
   .hamburger.active span:nth-child(2) { opacity: 0; }
   .hamburger.active span:nth-child(3) { transform: translateY(-9.75px) rotate(-45deg); }
 
+  /* Mobile dropdown menu — hidden by default */
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -562,6 +529,7 @@
     pointer-events: auto;
   }
 
+  /* Mobile nav links — stacked vertically */
   .nav-menu .mobile-navlinks {
     display: flex !important;
     flex-direction: column;
@@ -575,17 +543,20 @@
   }
   .nav-menu .mobile-navlinks a:last-child { border-bottom: none; }
 
+  /* Desktop: hide hamburger + mobile menu, show desktop nav */
   @media (min-width: 900px) {
     .hamburger { display: none; }
     .nav-menu { display: none !important; }
     .desktop-navlinks { display: flex !important; }
   }
 
+  /* Mobile: hide desktop nav, keep hamburger visible */
   @media (max-width: 899px) {
     .desktop-navlinks { display: none !important; }
     .hamburger { display: flex; }
   }
 
+  /* Dark mode support for hamburger + mobile menu */
   .dark-mode .hamburger span { background: var(--ink); }
   .dark-mode .nav-menu {
     background: var(--paper);
@@ -596,6 +567,7 @@
   .dark-mode .nav-menu .mobile-navlinks a:hover { color: var(--ink); }
   .dark-mode .nav-menu .mobile-navlinks a.active { color: var(--ink); }
 
+  /* Mobile Navbar Adjustments */
   @media(max-width: 640px) {
     nav .wrap { padding: 12px 16px; gap: 12px; }
     .brand { font-size: 18px; gap: 6px; }
@@ -620,12 +592,14 @@
   <div class="wrap">
     <a href="#top" class="brand"><span class="dot"></span>Riddhi.dev</a>
     
+    <!-- Hamburger Button -->
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
     
+    <!-- Mobile Menu -->
     <div class="nav-menu" id="nav-menu">
       <div class="navlinks mobile-navlinks">
         <a href="#about"><span class="num">01</span>about</a>
@@ -638,6 +612,7 @@
       </div>
     </div>
     
+    <!-- Desktop Nav Links -->
     <div class="navlinks desktop-navlinks">
       <a href="#about"><span class="num">01</span>about</a>
       <a href="#experience"><span class="num">02</span>experience</a>
@@ -670,13 +645,14 @@
 <header class="hero" id="top">
   <div class="wrap hero-inner">
     <div class="terminal"><span id="term-text"></span><span class="term-cursor" id="term-cursor"></span></div>
-    <div class="status">open to internships · 2026–27</div>
+    <div class="status">available for internships · summer 2026</div>
     <h1 class="name">Riddhi<br><span class="line2">Dhuri.</span></h1>
     <p class="tagline">Engineering student who builds things across the stack — from LAMP-powered CMS platforms to Java applications to SQL-driven data analysis. Currently exploring where development meets generative AI.</p>
     <div class="hero-links">
       <a class="btn primary" href="#projects">See my work →</a>
-      <a class="btn" href="Assets/Riddhi_Dhuri_Resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
-      <div class="doodle-arrow">↙ grab my cv</div>
+     
+      <a class="btn" href="Assets/Riddhi_Dhuri_Resume.pdf" download>Download CV ↓</a>
+       <div class="doodle-arrow">↙ grab my cv</div>
       <a class="btn" href="https://www.linkedin.com/in/riddhidhuri18122005" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
 
@@ -708,6 +684,7 @@
     <div class="about-grid">
       <div class="left">
         <div class="profile-photo-wrap">
+          <!-- Added missing 'profile-photo' class here -->
           <img class="profile-photo" src="Assets/pfp.png" alt="Riddhi Dhuri">
         </div>
         <p class="pull">I like the LAMP stack for how quickly it turns into something real, I like Java for how it makes you think in structure, and I like data because it's the part of a system that tells the truth.</p>
@@ -723,12 +700,6 @@
             <div><dt>focus areas</dt><dd>Web Dev · Java · Data Analysis</dd></div>
             <div><dt>currently into</dt><dd>Generative AI &amp; prompting</dd></div>
           </dl>
-        </div>
-        
-        <div class="fun-facts">
-          <div class="fun-card"><span class="icon">☕</span> Powered by: chai &amp; curiosity</div>
-          <div class="fun-card"><span class="icon">🛠️</span> Favourite thing: turning ideas into working projects</div>
-          <div class="fun-card"><span class="icon">🧠</span> Currently learning: AI/ML + GenAI</div>
         </div>
       </div>
     </div>
@@ -810,6 +781,7 @@
   </div>
 </section>
 
+<!-- NEW PROJECTS SECTION -->
 <section id="projects">
   <div class="wrap reveal">
     <div class="section-head">
@@ -839,6 +811,7 @@
         </div>
       </div>
       
+      <!-- Placeholder for future project -->
       <div class="project-card">
         <div class="project-images">
           <div class="polaroid">
@@ -862,84 +835,28 @@
       <h2 class="title">What I reach for</h2>
       <p class="section-lead">Languages, frameworks, and ways of thinking I've actually shipped with.</p>
     </div>
-    
-    <div class="tech-categories">
-      <!-- LANGUAGES -->
-      <div class="tech-category">
-        <h3 class="category-title">Languages</h3>
-        <div class="tech-grid">
-          <div class="tech-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
-          <div class="tech-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
-          <div class="tech-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
-          <div class="tech-item">
-            <div class="custom-tech">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-            </div>
-            <span>SQL</span>
-          </div>
+    <div class="tech-grid">
+      <div class="tech-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+      <div class="tech-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+      <div class="tech-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+      <div class="tech-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+      <div class="tech-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+      <div class="tech-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+      <div class="tech-item"><i class="devicon-flask-plain colored"></i><span>Flask</span></div>
+      <div class="tech-item"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
+      <div class="tech-item"><i class="devicon-apache-plain colored"></i><span>Apache</span></div>
+      <div class="tech-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+      <div class="tech-item">
+        <div class="custom-tech">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L13.09 8.26L20 9L14.5 13.5L15.5 21L12 17L8.5 21L9.5 13.5L4 9L10.91 8.26L12 2Z"/></svg>
         </div>
+        <span>GenAI</span>
       </div>
-      
-      <!-- WEB -->
-      <div class="tech-category">
-        <h3 class="category-title">Web</h3>
-        <div class="tech-grid">
-          <div class="tech-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
-          <div class="tech-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
-          <div class="tech-item"><i class="devicon-flask-plain colored"></i><span>Flask</span></div>
-          <div class="tech-item">
-            <div class="custom-tech">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
-            </div>
-            <span>LAMP</span>
-          </div>
+      <div class="tech-item">
+        <div class="custom-tech">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         </div>
-      </div>
-      
-      <!-- DATABASE -->
-      <div class="tech-category">
-        <h3 class="category-title">Database</h3>
-        <div class="tech-grid">
-          <div class="tech-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
-          <div class="tech-item">
-            <div class="custom-tech">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v3c0 1.66 4 3 9 3"/><path d="M18 9l3 3-3 3"/></svg>
-            </div>
-            <span>JDBC</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- TOOLS -->
-      <div class="tech-category">
-        <h3 class="category-title">Tools</h3>
-        <div class="tech-grid">
-          <div class="tech-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
-          <div class="tech-item"><i class="devicon-github-original colored"></i><span>GitHub</span></div>
-          <div class="tech-item"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
-          <div class="tech-item"><i class="devicon-apache-plain colored"></i><span>Apache</span></div>
-        </div>
-      </div>
-      
-      <!-- AI / DATA -->
-      <div class="tech-category">
-        <h3 class="category-title">AI / Data</h3>
-        <div class="tech-grid">
-          <div class="tech-item"><i class="devicon-pandas-plain colored"></i><span>Pandas</span></div>
-          <div class="tech-item"><i class="devicon-numpy-plain colored"></i><span>NumPy</span></div>
-          <div class="tech-item">
-            <div class="custom-tech">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-            </div>
-            <span>Data Analysis</span>
-          </div>
-          <div class="tech-item">
-            <div class="custom-tech">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L13.09 8.26L20 9L14.5 13.5L15.5 21L12 17L8.5 21L9.5 13.5L4 9L10.91 8.26L12 2Z"/></svg>
-            </div>
-            <span>GenAI</span>
-          </div>
-        </div>
+        <span>Data Analysis</span>
       </div>
     </div>
   </div>
@@ -1002,16 +919,8 @@
     <h2>Let's build<br><em>something.</em></h2>
     <p class="tagline">Open to internships and collaborations in web development, Java, and data-driven projects. Currently most excited about work that touches generative AI.</p>
 
-    <div class="recruiter-cta reveal">
-      <h3 class="cta-title">Looking for an intern who likes building things?<br><em>Let's talk.</em></h3>
-      <div class="cta-buttons">
-        <a href="#contact-form" class="btn primary">Hire / Collaborate →</a>
-        <a href="Assets/Riddhi_Dhuri_Resume.pdf" target="_blank" rel="noopener" class="btn">View Resume →</a>
-        <a href="https://www.linkedin.com/in/riddhidhuri18122005" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
-      </div>
-    </div>
-
     <div class="contact-grid">
+      <!-- FormSubmit.co AJAX Form -->
       <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/riddhi18dhuri12@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Portfolio Inquiry!">
         <input type="hidden" name="_template" value="table">
@@ -1044,7 +953,7 @@
           <div class="label">find me online</div>
           <div class="footer-links">
             <a class="btn" href="https://www.linkedin.com/in/riddhidhuri18122005" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <a class="btn" href="Assets/Riddhi_Dhuri_Resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
+            <a class="btn" href="Assets/Riddhi_Dhuri_Resume.pdf" download>Resume ↓</a>
           </div>
         </div>
       </div>
@@ -1204,7 +1113,7 @@
     }
   });
 
-  // Contact form submission
+  // Contact form submission for FormSubmit.co AJAX endpoint
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('form-submit');
   form.addEventListener('submit', async (e) => {
@@ -1250,6 +1159,7 @@
   const html = document.documentElement;
   let darkMode = false;
 
+  // Check for saved theme preference
   if(localStorage.getItem('theme') === 'dark'){
     darkMode = true;
     applyTheme();
@@ -1295,6 +1205,7 @@
       navMenu.classList.toggle('active');
     });
 
+    // Close menu when a link is clicked
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -1302,6 +1213,7 @@
       });
     });
 
+    // Close menu on scroll (so it doesn't stay open while browsing)
     window.addEventListener('scroll', () => {
       if (navMenu.classList.contains('active')) {
         hamburger.classList.remove('active');
@@ -1309,6 +1221,7 @@
       }
     }, { passive: true });
 
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
         hamburger.classList.remove('active');
