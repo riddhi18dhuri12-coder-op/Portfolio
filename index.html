@@ -421,6 +421,48 @@
     .reveal{ opacity:1; transform:none; }
     .path-line-fill{ transform: scaleY(1); }
   }
+
+  .theme-toggle {
+  background: var(--paper-2);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  box-shadow: 2px 2px 0px var(--ink);
+  transition: all .2s var(--ease-quiet);
+}
+.theme-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--ink);
+}
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--ink);
+  transition: opacity .3s var(--ease-quiet), transform .3s var(--ease-quiet);
+  position: absolute;
+}
+.theme-icon-light {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.theme-icon-dark {
+  opacity: 0;
+  transform: scale(0.8) rotate(-180deg);
+}
+.dark-mode .theme-icon-light {
+  opacity: 0;
+  transform: scale(0.8) rotate(180deg);
+}
+.dark-mode .theme-icon-dark {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
 </style>
 </head>
 <body>
@@ -438,8 +480,22 @@
       <a href="#certs"><span class="num">05</span>certs</a>
       <a href="#education"><span class="num">06</span>education</a>
       <a href="#contact"><span class="num">07</span>contact</a>
-        <button id="theme-toggle" style="background:var(--paper-2); border:2px solid var(--ink); border-radius:4px; padding:6px 12px; font-family:'JetBrains Mono',monospace; font-size:12px; box-shadow:2px 2px 0px var(--ink); cursor:pointer;">💡 Mode</button>
-    </div>
+<button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+  <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+  <svg class="theme-icon theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>    </div>
   </div>
 </nav>
 
@@ -954,17 +1010,45 @@
     }
   });
 
-          // Paper Theme Switcher
-  const themeBtn = document.getElementById('theme-toggle');
-  let darkPaper = false;
-  themeBtn.addEventListener('click', () => {
-    darkPaper = !darkPaper;
-    document.documentElement.style.setProperty('--paper', darkPaper ? '#1E1E24' : '#FBF9F4');
-    document.documentElement.style.setProperty('--paper-2', darkPaper ? '#282830' : '#F4F1EA');
-    document.documentElement.style.setProperty('--ink', darkPaper ? '#F4F1EA' : '#2D2D2D');
-    document.documentElement.style.setProperty('--line', darkPaper ? 'rgba(244,241,234,0.15)' : 'rgba(45,45,45,0.15)');
-    themeBtn.textContent = darkPaper ? '☀️ Mode' : '💡 Mode';
-  });
+         // Theme Switcher with SVG Icons
+const themeBtn = document.getElementById('theme-toggle');
+const html = document.documentElement;
+let darkMode = false;
+
+// Check for saved theme preference
+if(localStorage.getItem('theme') === 'dark'){
+  darkMode = true;
+  applyTheme();
+}
+
+function applyTheme() {
+  if(darkMode) {
+    html.classList.add('dark-mode');
+    html.style.setProperty('--paper', '#1E1E24');
+    html.style.setProperty('--paper-2', '#282830');
+    html.style.setProperty('--ink', '#F4F1EA');
+    html.style.setProperty('--ink-soft', '#D4D1CC');
+    html.style.setProperty('--ink-softer', '#A8A5A0');
+    html.style.setProperty('--line', 'rgba(244,241,234,0.15)');
+    html.style.setProperty('--line-strong', 'rgba(244,241,234,0.4)');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    html.classList.remove('dark-mode');
+    html.style.setProperty('--paper', '#FBF9F4');
+    html.style.setProperty('--paper-2', '#F4F1EA');
+    html.style.setProperty('--ink', '#2D2D2D');
+    html.style.setProperty('--ink-soft', '#555555');
+    html.style.setProperty('--ink-softer', '#888888');
+    html.style.setProperty('--line', 'rgba(45,45,45,0.15)');
+    html.style.setProperty('--line-strong', 'rgba(45,45,45,0.4)');
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+themeBtn.addEventListener('click', () => {
+  darkMode = !darkMode;
+  applyTheme();
+});
 </script>
 
 </body>
