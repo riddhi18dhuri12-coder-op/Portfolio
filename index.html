@@ -421,7 +421,46 @@
     .reveal{ opacity:1; transform:none; }
     .path-line-fill{ transform: scaleY(1); }
   }
+/* Dark Mode Nav Adjustments */
+.dark-mode nav {
+  background: rgba(30, 30, 36, 0.95);
+  border-bottom-color: rgba(244, 241, 234, 0.4);
+}
 
+.dark-mode .navlinks a {
+  color: #A8A5A0;
+  transition: color .15s;
+}
+
+.dark-mode .navlinks a .num {
+  color: #FF6F61;
+}
+
+.dark-mode .navlinks a:hover {
+  color: #F4F1EA;
+}
+
+.dark-mode .navlinks a.active {
+  color: #F4F1EA;
+}
+
+.dark-mode .brand {
+  color: #F4F1EA;
+}
+
+.dark-mode .brand .dot {
+  background: #FF6F61;
+}
+
+.dark-mode #theme-toggle {
+  background: var(--paper-2);
+  border-color: var(--ink);
+  box-shadow: 2px 2px 0px var(--ink);
+}
+
+.dark-mode .theme-icon {
+  color: var(--ink);
+}
   .theme-toggle {
   background: var(--paper-2);
   border: 2px solid var(--ink);
